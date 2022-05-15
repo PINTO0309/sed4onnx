@@ -46,7 +46,7 @@ optional arguments:
   --mode {encode,decode}
         encode: Converts the string specified in constant_string to a Base64 format string
                 that can be embedded in ONNX constants.
-        decode: Converts a Base64 string specified in constant_string to numpy.ndarray.
+        decode: Converts a Base64 string specified in constant_string to ASCII like Numpy string.
 ```
 
 ## 3. In-script Usage

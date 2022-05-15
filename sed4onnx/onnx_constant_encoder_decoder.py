@@ -118,7 +118,7 @@ def main():
         help=\
             'encode: Converts the string specified in constant_string to a Base64 format string '+
             'that can be embedded in ONNX constants. \n'+
-            'decode: Converts a Base64 string specified in constant_string to numpy.ndarray.'
+            'decode: Converts a Base64 string specified in constant_string to ASCII like Numpy string.'
     )
     args = parser.parse_args()
 
