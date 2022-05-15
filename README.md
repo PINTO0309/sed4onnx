@@ -133,3 +133,13 @@ $ sed4onnx \
 
 [-1,3,224,224]
 ```
+
+## 7. Reference
+1. https://github.com/onnx/onnx/blob/main/docs/Operators.md
+2. https://docs.nvidia.com/deeplearning/tensorrt/onnx-graphsurgeon/docs/index.html
+3. https://github.com/NVIDIA/TensorRT/tree/main/tools/onnx-graphsurgeon
+4. https://github.com/PINTO0309/simple-onnx-processing-tools
+5. https://github.com/PINTO0309/PINTO_model_zoo
+
+## 8. Issues
+https://github.com/PINTO0309/simple-onnx-processing-tools/issues
