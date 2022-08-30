@@ -129,7 +129,7 @@ numpy_ndarray = decode(
 ```bash
 $ sed4onnx \
 --constant_string [-1,3,224,224] \
---dtype='int64' \
+--dtype int64 \
 --mode encode
 
 //////////8DAAAAAAAAAOAAAAAAAAAA4AAAAAAAAAA=
