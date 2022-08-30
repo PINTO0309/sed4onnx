@@ -44,6 +44,7 @@ DTYPES_TO_NUMPY_DTYPES: dict = {
 
 def encode(
     constant_string: str,
+    dtype: str,
 ) -> str:
     """encode
 
@@ -52,14 +53,30 @@ def encode(
     constant_string: str
         ASCII string to be encoded.
 
+    dtype: str
+        'float32' or 'float64' or 'uint8' or 'int8' or 'int32' or 'int64'
+
     Returns
     -------
     encoded_string: str
         Base64-encoded ASCII string.
     """
 
+    # dtype check
+    if not dtype in DTYPES_TO_NUMPY_DTYPES:
+        print(
+            f'{Color.RED}ERROR:{Color.RESET} '+
+            f'dtype must be one of {DTYPES_TO_NUMPY_DTYPES.keys()}.'
+        )
+        sys.exit(1)
+
     # Return
-    return base64.b64encode(np.asarray(ast.literal_eval(constant_string)).tobytes()).decode('utf-8')
+    return base64.b64encode(
+        np.asarray(
+            ast.literal_eval(constant_string),
+            dtype=DTYPES_TO_NUMPY_DTYPES[dtype],
+        ).tobytes()
+    ).decode('utf-8')
 
 
 def decode(
@@ -91,7 +108,10 @@ def decode(
         sys.exit(1)
 
     # Return
-    return np.frombuffer(base64.b64decode(constant_string), dtype=DTYPES_TO_NUMPY_DTYPES[dtype])
+    return np.frombuffer(
+        base64.b64decode(constant_string),
+        dtype=DTYPES_TO_NUMPY_DTYPES[dtype]
+    )
 
 
 def main():
@@ -126,19 +146,21 @@ def main():
     dtype = args.dtype
     mode = args.mode
 
+    if not dtype:
+        print(
+            f'{Color.RED}ERROR:{Color.RESET} '+
+            f'dtype must be one of {DTYPES_TO_NUMPY_DTYPES.keys()}.'
+        )
+        sys.exit(1)
+
     if mode == 'encode':
         enc_dec_string = encode(
             constant_string=constant_string,
+            dtype=dtype,
         )
         print(enc_dec_string)
 
     elif mode == 'decode':
-        if not dtype:
-            print(
-                f'{Color.RED}ERROR:{Color.RESET} '+
-                f'dtype must be one of {DTYPES_TO_NUMPY_DTYPES.keys()}.'
-            )
-            sys.exit(1)
         decoded_ndarray = decode(
             constant_string=constant_string,
             dtype=dtype,

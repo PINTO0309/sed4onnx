@@ -68,6 +68,9 @@ encode(constant_string: str) -> str
     constant_string: str
         ASCII string to be encoded.
 
+    dtype: str
+        'float32' or 'float64' or 'uint8' or 'int8' or 'int32' or 'int64'
+
     Returns
     -------
     encoded_string: str
@@ -98,6 +101,7 @@ decode(constant_string: str, dtype: str) -> numpy.ndarray
 ```bash
 $ sed4onnx \
 --constant_string [-1,3,224,224] \
+--dtype int64 \
 --mode encode
 
 $ sed4onnx \
@@ -113,6 +117,7 @@ from sed4onnx import decode
 
 base64_string = encode(
   constant_string='[-1,3,224,224]',
+  dtype='int64',
 )
 
 numpy_ndarray = decode(
@@ -125,6 +130,7 @@ numpy_ndarray = decode(
 ```bash
 $ sed4onnx \
 --constant_string [-1,3,224,224] \
+--dtype='int64' \
 --mode encode
 
 //////////8DAAAAAAAAAOAAAAAAAAAA4AAAAAAAAAA=
