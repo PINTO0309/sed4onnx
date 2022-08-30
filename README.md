@@ -81,7 +81,6 @@ encode(constant_string: str) -> str
 Help on function decode in module sed4onnx.onnx_constant_encoder_decoder:
 
 decode(constant_string: str, dtype: str) -> numpy.ndarray
-    decode
 
     Parameters
     ----------
