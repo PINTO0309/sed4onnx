@@ -28,26 +28,26 @@ https://github.com/PINTO0309/simple-onnx-processing-tools#docker
 
 
 ## 2. CLI Usage
-```bash
+```
 $ sed4onnx -h
 
 usage:
     sed4onnx [-h]
-    --constant_string CONSTANT_STRING
-    [--dtype {float32,float64,uint8,int8,int32,int64}]
-    [--mode {encode,decode}]
+    -cs CONSTANT_STRING
+    [-d {float32,float64,uint8,int8,int32,int64}]
+    [-m {encode,decode}]
 
 optional arguments:
   -h, --help
         show this help message and exit.
 
-  --constant_string CONSTANT_STRING
+  -cs CONSTANT_STRING, --constant_string CONSTANT_STRING
         Strings to be encoded and decoded for ONNX constants.
 
-  --dtype {float32,float64,uint8,int8,int32,int64}
+  -d {float32,float64,uint8,int8,int32,int64}, --dtype {float32,float64,uint8,int8,int32,int64}
         Data type.
 
-  --mode {encode,decode}
+  -m {encode,decode}, --mode {encode,decode}
         encode: Converts the string specified in constant_string to a Base64 format string
                 that can be embedded in ONNX constants.
         decode: Converts a Base64 string specified in constant_string to ASCII like Numpy string.

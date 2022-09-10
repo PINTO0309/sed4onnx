@@ -117,18 +117,21 @@ def decode(
 def main():
     parser = ArgumentParser()
     parser.add_argument(
+        '-cs',
         '--constant_string',
         type=str,
         required=True,
         help='Strings to be encoded and decoded for ONNX constants.'
     )
     parser.add_argument(
+        '-d',
         '--dtype',
         type=str,
         choices=DTYPES_TO_NUMPY_DTYPES,
         help='Data type.'
     )
     parser.add_argument(
+        '-m',
         '--mode',
         type=str,
         choices=[
