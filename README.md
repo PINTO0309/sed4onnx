@@ -34,7 +34,7 @@ $ sed4onnx -h
 usage:
     sed4onnx [-h]
     -cs CONSTANT_STRING
-    [-d {float32,float64,uint8,int8,int32,int64}]
+    [-d {float16,float32,float64,uint8,int8,int16,int32,int64,string}]
     [-m {encode,decode}]
 
 optional arguments:
@@ -44,13 +44,15 @@ optional arguments:
   -cs CONSTANT_STRING, --constant_string CONSTANT_STRING
         Strings to be encoded and decoded for ONNX constants.
 
-  -d {float32,float64,uint8,int8,int32,int64}, --dtype {float32,float64,uint8,int8,int32,int64}
+  -d {float16,float32,float64,uint8,int8,int16,int32,int64,string}, \
+    --dtype {float16,float32,float64,uint8,int8,int16,int32,int64,string}
         Data type.
 
   -m {encode,decode}, --mode {encode,decode}
         encode: Converts the string specified in constant_string to a Base64 format string
                 that can be embedded in ONNX constants.
-        decode: Converts a Base64 string specified in constant_string to ASCII like Numpy string.
+        decode: Converts a Base64 string specified in constant_string to ASCII like
+                Numpy string or pure string.
 ```
 
 ## 3. In-script Usage
@@ -69,7 +71,8 @@ encode(constant_string: str) -> str
         ASCII string to be encoded.
 
     dtype: str
-        'float32' or 'float64' or 'uint8' or 'int8' or 'int32' or 'int64'
+        'float16' or 'float32' or 'float64' or 'uint8'
+        or 'int8' or 'int16' or 'int32' or 'int64' or 'string'
 
     Returns
     -------
@@ -88,7 +91,8 @@ decode(constant_string: str, dtype: str) -> numpy.ndarray
         Base64 string to be decoded.
 
     dtype: str
-        'float32' or 'float64' or 'uint8' or 'int8' or 'int32' or 'int64'
+        'float16' or 'float32' or 'float64' or 'uint8'
+        or 'int8' or 'int16' or 'int32' or 'int64' or 'string'
 
     Returns
     -------
