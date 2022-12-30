@@ -34,7 +34,7 @@ $ sed4onnx -h
 usage:
     sed4onnx [-h]
     -cs CONSTANT_STRING
-    [-d {float32,float64,uint8,int8,int32,int64,string}]
+    [-d {float16,float32,float64,uint8,int8,int16,int32,int64,string}]
     [-m {encode,decode}]
 
 optional arguments:
@@ -44,7 +44,8 @@ optional arguments:
   -cs CONSTANT_STRING, --constant_string CONSTANT_STRING
         Strings to be encoded and decoded for ONNX constants.
 
-  -d {float32,float64,uint8,int8,int32,int64,string}, --dtype {float32,float64,uint8,int8,int32,int64,string}
+  -d {float16,float32,float64,uint8,int8,int16,int32,int64,string}, \
+    --dtype {float16,float32,float64,uint8,int8,int16,int32,int64,string}
         Data type.
 
   -m {encode,decode}, --mode {encode,decode}
